@@ -30,7 +30,7 @@
 				<textarea id="address"  class="form-control" placeholder="Address" style="resize:none"></textarea>
 			</div>
 			<div  class="col-sm-4 col-xs-12" style="margin-top:10px">
-				<button onclick="save()" class="btn btn-lg btn-success"><i class="fa fa-check"></i> SAVE RECORD</button>
+				<button onclick="save()" class="btn btn-lg btn-success"> SAVE RECORD</button>
 			</div>
 		</div><!--row-->
 
@@ -59,9 +59,7 @@
 </html>
 
 
-<script>
-	var mytable = $('#mytable').dataTable();
-  populate_mytable();
+<script> /* CONTROLLER SCRIPT */
 
   function populate_mytable(){ 
     //ajax now
@@ -85,53 +83,5 @@
     //ajax end  
   } //.load cat_table
 
-  function save(){
-  	var name = $('#name').val();
-  	var address = $('#address').val();
 
-  	if(validate(name,address)==true){}
-  	else{
-	  	var dataString = 'name='+name+'&address='+address;
-
-	    //ajax now
-	    $.ajax ({
-	      type: "POST",
-	      url: "serverside/insert_mytable.php",
-	      dataType: 'json',     
-	      data: dataString, 
-	      cache: false,
-	      success: function(x)
-	      {
-	      	clear();
-					populate_mytable();   
-	      }  
-	    }); 
-	    //ajax end     		
-  	}
-
- 	
-  }
-
-  function validate(name,address){
-  	err = false;
-  	if(name == ''){
-  		err = true;
-  		$('#div_name').addClass('has-error');
-  	}
-  	else
-  		$('#div_name').removeClass('has-error');
-  	if(address==''){
-  		$('#div_address').addClass('has-error');
-  		err = true;
-  	}
-  	else
-  		$('#div_address').removeClass('has-error');
-
-  	return err;
-  }
-
-  function clear(){
-  	$('#name').val('');
-  	$('#address').val('');
-  }
-</script>
+</script> 

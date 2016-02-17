@@ -4,11 +4,17 @@
 <!--DEPENDENCIES PLUGINS -->
 <?php include('views/layout/_shim.html'); ?> <!-- browser's compatibility-->
 
+<!--Font-Awesome BELOW-->
 <link href="resources/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />  
+<!--Bootstrap CSS BELOW-->
 <link href="resources/plugins/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />  
+<!--JQUERY BELOW-->
 <script src="resources/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+<!--Datatables BELOW-->
 <script src="resources/plugins/datatables/jquery.dataTables.js" type="text/javascript"></script>
+<!--Datatables Bootsrap CSS BELOW -->
 <script src="resources/plugins/datatables/dataTables.bootstrap.js" type="text/javascript"></script>   
+<!--Datatables Javascript BELLOW -->
 <link href="resources/plugins/datatables/dataTables.bootstrap.css" rel="stylesheet" type="text/css" />  
 
 <!--/.DEPENDENCIES PLUGINS -->

@@ -35,7 +35,7 @@
 				<textarea id="address"  class="form-control" placeholder="Address" style="resize:none"></textarea>
 			</div>
 			<div  class="col-sm-4 col-xs-12" style="margin-top:10px">
-				<button onclick="save()" class="btn btn-lg btn-success"> SAVE RECORD</button>
+				<button  class="btn btn-lg btn-success"> SAVE RECORD</button>
 			</div>
 		</div><!--row-->
 

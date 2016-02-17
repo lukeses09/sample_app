@@ -19,3 +19,5 @@
     }); 
     //ajax end  
   } //.load cat_table
+
+  populate_mytable();

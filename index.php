@@ -44,7 +44,7 @@
 		<div class="row">
 			<div class="col-sm-2"></div>
 			<div class="col-sm-8 col-xs-12">
-				<table id="mytable" class="table table-hover">
+				<table id="mytable" style="border:solid 1px">
 					<thead>
 						<th>ID</th>
 						<th>Name</th>

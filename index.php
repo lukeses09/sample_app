@@ -36,7 +36,7 @@
 				<textarea id="address"  class="form-control" placeholder="Address" style="resize:none"></textarea>
 			</div>
 			<div  class="col-sm-4 col-xs-12" style="margin-top:10px">
-				<button onclick="save()" class="btn btn-lg btn-success"><i class="fa fa-check"></i> SAVE RECORD</button>
+				<button onclick="save()" id="btn_save" class="btn btn-lg btn-success"><i class="fa fa-check"></i> SAVE RECORD</button>
 			</div>
 		</div><!--row-->
 
@@ -47,7 +47,6 @@
 			<div class="col-sm-8 col-xs-12">
 				<table id="mytable" class="table table-hover">
 					<thead>
-						<th>ID</th>
 						<th>Name</th>
 						<th>Address</th>
 					</thead>
@@ -70,26 +69,15 @@
   populate_mytable();
 
   function populate_mytable(){ 
-    //ajax now
-    $.ajax ({
-      type: "POST",
-      url: "serverside/populate_mytable.php",
-      dataType: 'json',      
-      cache: false,
-      success: function(x)
-      {
-        mytable.fnClearTable();        
-        for(var i = 0; i < x.length; i++) 
-        { 
-          mytable.fnAddData
-          ([
-						x[i][0],x[i][1],x[i][2],     
-          ]); 
-        }       
-      }  
-    }); 
-    //ajax end  
-  } //.load cat_table
+	 mytable.fnClearTable();        
+   for(var i = 0; i<3; i++) 
+   { 
+		mytable.fnAddData
+		([
+			'name','address',     
+		]); 
+   }       
+  }  
 
   function save(){
   	var name = $('#name').val();
@@ -98,21 +86,11 @@
   	if(validate(name,address)==true){}
   	else{
 	  	var dataString = 'name='+name+'&address='+address;
-
-	    //ajax now
-	    $.ajax ({
-	      type: "POST",
-	      url: "serverside/insert_mytable.php",
-	      dataType: 'json',     
-	      data: dataString, 
-	      cache: false,
-	      success: function(x)
-	      {
 	      	clear();
-					populate_mytable();   
-	      }  
-	    }); 
-	    //ajax end     		
+					mytable.fnAddData
+					([
+						name,address,     
+					]); 
   	}
 
  	
@@ -132,6 +110,15 @@
   	}
   	else
   		$('#div_address').removeClass('has-error');
+
+		if(err==true){
+			$('#btn_save').removeClass('btn-success');
+			$('#btn_save').addClass('btn-danger');
+		}
+		else{
+			$('#btn_save').removeClass('btn-danger');
+			$('#btn_save').addClass('btn-success');
+		}
 
   	return err;
   }
